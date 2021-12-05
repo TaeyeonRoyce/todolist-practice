@@ -17,7 +17,7 @@
             </div>
             <button class="addTodo"
                     onclick="location.href='addTodo.html'"
-                    th:onclick="|location.href='@{/todolist/addTodo.html}'|"> 새로운 일정 추가하기 </button>
+                    th:onclick="|location.href='@{/todolist/addTodo}'|"> 새로운 일정 추가하기 </button>
             <div class="todoListContainer">
                 <a href="todo.html" th:href="@{/todolist/todo/{todoId}(todoId=${todo.getTodoId()})}" class="todoList" th:each="todo : ${todos}">
                     <div class="todoBullet" th:if="${todo.getTodoFinished()}">🟢️️</div>

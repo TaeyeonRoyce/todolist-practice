@@ -1,13 +1,16 @@
 package tyroyce.todoproject.domain.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,10 +32,22 @@ public class TodoController {
 		return "todolist/todos";
 	}
 
+	@GetMapping("/addTodo")
+	public String addTodo() {
+		return "todolist/addTodo";
+	}
+
+	@GetMapping("/todo/{todoId}")
+	public String todoId(@PathVariable Long todoId, Model model) {
+		Optional<Todo> todoOptional = todoRepository.findById(todoId);
+		model.addAttribute("todo", todoOptional.get());
+		return "todolist/todo";
+	}
+
 	@PostConstruct
 	public void testData() {
-		Todo todo1 = Todo.builder().todoId(1L).todoDetail("Network공부하기").todoFinished(false).build();
-		Todo todo2 = Todo.builder().todoId(2L).todoDetail("My SQL 연결하기").todoFinished(true).build();
+		Todo todo1 = Todo.builder().todoDetail("Network 공부하기").todoFinished(false).build();
+		Todo todo2 = Todo.builder().todoDetail("My SQL 연결하기").todoFinished(true).build();
 		todoRepository.save(todo1);
 		todoRepository.save(todo2);
 	}

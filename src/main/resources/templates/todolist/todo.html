@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{/css/todo.css}"
+          rel="stylesheet" href="../css/todo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cardContainer">
+            <div class="DateContainer">
+                <div class="year">2021</div>
+                <div class="date">12/25</div>
+            </div>
+            <div class="todoDetail" th:text="${todo.getTodoDetail()}">Jpa 공부하기</div>
+            <div class="askMessage">일정을 완료하셨나요?</div>
+            <form class="buttonContainer" action="" method="post">
+                <button type="submit" class="addTodo"> 완료 하기 </button>
+                <button onclick="location.href='todos.html'" th:onclick="|location.href='@{/todolist}'|" type="button" class="return">돌아가기</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
