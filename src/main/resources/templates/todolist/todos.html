@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link th:href="@{/css/todos.css}"
+            rel="stylesheet" href="../css/todos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cardContainer">
+            <div class="DateContainer">
+                <div class="year">2021</div>
+                <div class="date">12/25</div>
+            </div>
+            <button class="addTodo"
+                    onclick="location.href='addTodo.html'"
+                    th:onclick="|location.href='@{/todolist/addTodo.html}'|"> 새로운 일정 추가하기 </button>
+            <div class="todoListContainer">
+                <a href="todo.html" th:href="@{/todolist/todo/{todoId}(todoId=${todo.getTodoId()})}" class="todoList" th:each="todo : ${todos}">
+                    <div class="todoBullet" th:if="${todo.getTodoFinished()}">🟢️️</div>
+                    <div class="todoBullet" th:unless="${todo.getTodoFinished()}">⭕</div>
+                    <div class="todoDetail" th:text="${todo.getTodoDetail()}">일정 내용</div>
+                </a>
+                <a href="todo.html" class="todoList">
+                    <div class="todoBullet">⭕️</div>
+                    <div class="todoDetail">Jpa 공부하기</div>
+                </a>
+                <a href="todo.html" class="todoList">
+                    <div class="todoBullet">⭕️</div>
+                    <div class="todoDetail">Spring MVC 공부하기</div>
+                </a>
+                <a href="todo.html" class="doneListContainer">
+                    <div class="todoList">
+                        <div class="todoBullet">🟢</div>
+                        <div class="todoDetail">My Sql 연결하기</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

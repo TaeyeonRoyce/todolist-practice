@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/addTodo.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cardContainer">
+            <div class="DateContainer">
+                <div class="year">2021</div>
+                <div class="date">12/25</div>
+            </div>
+            <div class="MessageContainer">
+                <div class="addMessage">새로운 일정을 등록하세요</div>
+            </div>
+            <form action="todos.html" method="post">
+                <div>
+                    <input type="text" name="todoDetail" class="addTodoForm" placeholder="일정을 입력하세요">
+                </div>
+                <div class="buttonContainer">
+                    <button type="submit" class="addTodo"> 일정에 추가하기</button>
+                    <button onclick="location.href='todos.html'" type="button" class="return">돌아가기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
