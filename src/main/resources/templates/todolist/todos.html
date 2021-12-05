@@ -22,6 +22,7 @@
                 <a href="todo.html" th:href="@{/todolist/todo/{todoId}(todoId=${todo.getTodoId()})}" class="todoList" th:each="todo : ${todos}">
                     <div class="todoBullet" th:if="${todo.getTodoFinished()}">🟢️️</div>
                     <div class="todoBullet" th:unless="${todo.getTodoFinished()}">⭕</div>
+
                     <div class="todoDetail" th:text="${todo.getTodoDetail()}">일정 내용</div>
                 </a>
                 <a href="todo.html" class="todoList">
