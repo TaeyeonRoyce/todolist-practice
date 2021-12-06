@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+button {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 700px;
+  background: linear-gradient(0.25turn, #adbfc7, #ebf8e1, #dbccbc);
+}
+
+.cardContainer {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90%;
+  min-width: 700px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0px 8px 13px grey;
+}
+
+.DateContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.year {
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+.date {
+  font-size: 80px;
+  letter-spacing: 5px;
+}
+
+.addTodo {
+  width: 200px;
+  border-radius: 10px;
+  background-color: rgb(173, 230, 230);
+  height: 40px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  box-shadow: 1px 2px 4px 0px rgb(207 202 202);
+}
+
+.addTodo:hover {
+  background-color: rgba(173, 230, 230, 0.5);
+}
+
+.todoListContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  width: 120%;
+  gap: 20px;
+  transition: text-decoration 1s;
+  overflow-y: auto;
+}
+
+.todoList {
+  display: flex;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+}
+.todoBullet {
+  margin-right: 30px;
+  font-size: 24px;
+}
+.todoDetail {
+  text-align: center;
+  line-height: 30px;
+}
+
+.todoList:hover {
+  text-decoration: rgb(213, 231, 213) wavy underline;
+}
+
+.mainDetailContainer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+}
