@@ -19,12 +19,16 @@
                     onclick="location.href='addTodo.html'"
                     th:onclick="|location.href='@{/todolist/addTodo}'|"> 새로운 일정 추가하기 </button>
             <div class="todoListContainer">
-                <a href="todo.html" th:href="@{/todolist/todo/{todoId}(todoId=${todo.getTodoId()})}" class="todoList" th:each="todo : ${todos}">
-                    <div class="todoBullet" th:if="${todo.getTodoFinished()}">🟢️️</div>
-                    <div class="todoBullet" th:unless="${todo.getTodoFinished()}">⭕</div>
-
-                    <div class="todoDetail" th:text="${todo.getTodoDetail()}">일정 내용</div>
-                </a>
+                <div class="todoContainer" th:each="todo : ${todos}">
+                    <a href="todo.html" th:href="@{/todolist/todo/{todoId}(todoId=${todo.getTodoId()})}" class="todoList">
+                        <div class="todoBullet" th:if="${todo.getTodoFinished()}">🟢️️</div>
+                        <div class="todoBullet" th:unless="${todo.getTodoFinished()}">⭕</div>
+                        <div class="todoDetail" th:text="${todo.getTodoDetail()}">일정 내용</div>
+                    </a>
+                    <form class="deleteTodo" action="todos.html" th:action="@{/todolist/delete/{todoId}(todoId=${todo.getTodoId()})}" method="post">
+                        <button type="submit"> ❌ </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -82,12 +82,38 @@ a {
 .todoBullet {
   margin-right: 10px;
   font-size: 24px;
+  line-height: 40px;
 }
 .todoDetail {
   text-align: center;
-  line-height: 30px;
+  line-height: 40px;
 }
 
 .todoList:hover {
   text-decoration: rgb(213, 231, 213) wavy underline;
+}
+
+.todoContainer{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: aqua solid 1px;
+}
+
+.deleteTodo{
+  width: 50px;
+  border-radius: 50%;
+  min-height: 50px;
+  font-size: 18px;
+  transition: box-shadow 0.5s;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.deleteTodo button{
+  font-size: 20px;
+}
+
+.deleteTodo:hover{
+  box-shadow: 1px 2px 4px 0px rgb(207 202 202);
 }

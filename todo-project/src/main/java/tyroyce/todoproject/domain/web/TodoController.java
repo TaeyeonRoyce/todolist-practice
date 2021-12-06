@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,7 +50,7 @@ public class TodoController {
 	}
 
 	@PostMapping("/todo/{todoId}")
-	public String editTodo(@PathVariable Long todoId, Model model) {
+	public String editTodo(@PathVariable Long todoId) {
 		Optional<Todo> changedTodo = todoRepository.findById(todoId);
 		Todo todo = changedTodo.get();
 		if (todo.getTodoFinished()) {
@@ -57,6 +58,13 @@ public class TodoController {
 		} else {
 			todoRepository.updateFinished(true,todoId);
 		}
+		return "redirect:/todolist";
+	}
+
+	@PostMapping("/delete/{todoId}")
+	public String deleteTodo(@PathVariable Long todoId) {
+		Optional<Todo> deleteTodo = todoRepository.findById(todoId);
+		todoRepository.delete(deleteTodo.get());
 		return "redirect:/todolist";
 	}
 
