@@ -1,8 +1,11 @@
 import MainPage from './domain/MainPage';
+import {Router} from "react-router-dom";
 
 function App() {
   return (
-    <MainPage/>
+    <div>
+      <Router exact={true} path="/" component={MainPage}/>
+    </div>
   );
 }
 

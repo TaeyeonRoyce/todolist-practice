@@ -32,6 +32,7 @@ public class TodoController {
 	public String todos(Model model) {
 		List<Todo> todos = todoRepository.findAll();
 		model.addAttribute("todos", todos);
+
 		return "todolist/todos";
 	}
 
@@ -47,10 +48,22 @@ public class TodoController {
 		return "todolist/todo";
 	}
 
+	@PostMapping("/todo/{todoId}")
+	public String editTodo(@PathVariable Long todoId, Model model) {
+		Optional<Todo> changedTodo = todoRepository.findById(todoId);
+		Todo todo = changedTodo.get();
+		if (todo.getTodoFinished()) {
+			todoRepository.updateFinished(false,todoId);
+		} else {
+			todoRepository.updateFinished(true,todoId);
+		}
+		return "redirect:/todolist";
+	}
+
 	@PostMapping("/addTodo")
 	public String addTodo(@RequestParam String todoDetail, RedirectAttributes redirectAttributes) {
 		Todo todo = new Todo(todoDetail);
-		Todo savedTodo = todoRepository.save(todo);
+		todoRepository.save(todo);
 		redirectAttributes.addAttribute("status", true);
 		return "redirect:/todolist/addTodo";
 	}

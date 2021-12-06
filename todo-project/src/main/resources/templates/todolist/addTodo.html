@@ -20,7 +20,7 @@
             </div>
             <form action="todos.html" th:action method="post">
                 <div>
-                    <div class="addMessage" th:if="${param.status}"> 일정이 등록되었습니다 </div>
+                    <div class="finishedMessage" th:if="${param.status}"> 일정이 등록되었습니다 </div>
                     <input type="text" name="todoDetail" class="addTodoForm" placeholder="일정을 입력하세요" th:unless="${param.status}">
                 </div>
                 <div class="buttonContainer">

@@ -16,9 +16,12 @@
                 <div class="date">12/25</div>
             </div>
             <div class="todoDetail" th:text="${todo.getTodoDetail()}">Jpa 공부하기</div>
-            <div class="askMessage">일정을 완료하셨나요?</div>
-            <form class="buttonContainer" action="" method="post">
-                <button type="submit" class="addTodo"> 완료 하기 </button>
+
+            <div class="askMessage" th:if="${todo.getTodoFinished()}">완료된 일정입니다.</div>
+            <div class="askMessage" th:unless="${todo.getTodoFinished()}">일정을 완료하셨나요?</div>
+            <form class="buttonContainer" action="" th:action method="post">
+                <button type="submit" class="addTodo" th:if="${todo.getTodoFinished()}"> 취소 하기 </button>
+                <button type="submit" class="addTodo" th:unless="${todo.getTodoFinished()}"> 완료 하기 </button>
                 <button onclick="location.href='todos.html'" th:onclick="|location.href='@{/todolist}'|" type="button" class="return">돌아가기</button>
             </form>
         </div>

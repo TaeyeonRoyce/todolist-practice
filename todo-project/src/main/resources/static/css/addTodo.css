@@ -124,3 +124,10 @@ a {
 .todoList:hover {
   text-decoration: rgb(213, 231, 213) wavy underline;
 }
+
+.finishedMessage {
+  font-size: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+  min-width: 400px;
+}
