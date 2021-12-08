@@ -15,9 +15,8 @@ function AddPageDetail() {
 
         const addTodoDetail = async () =>{
         await axios
-                .post("http://localhost:8080/todolist/addtodo", {
-                    todoDetail: inputValue
-                })
+                .post("http://localhost:8080/todolist/addtodo", inputValue,
+                {headers: {"Content-Type": `text/html`,}})
                 .then((response) => {
                     console.log(response.data);
                     setInputValue("");
@@ -43,7 +42,6 @@ function AddPageDetail() {
             </div>
             <form action="todos.html" method="post" onSubmit={addTodo}>
                 <div>
-
                     <input type="text" onChange={changeValue} name="todoDetail" className="addTodoForm" placeholder="일정을 입력하세요"/>
                 </div>
                 <div className="buttonContainer">

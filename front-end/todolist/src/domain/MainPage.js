@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MainFrame from "../components/MainFrame";
 import Todos from '../components/Todos';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import "../css/mainPage.css";
 
 
-function MainDetail({todos}) {
+function MainDetail(todos) {
     return (
         <div className="mainDetailContainer">
             <Link to="/todolist/addtodo">
@@ -21,9 +23,25 @@ function MainDetail({todos}) {
 }
 
 
-function MainPage(todos) {
+function MainPage() {
+
+    const baseurl = "http://localhost:8080/todolist";
+
+    const [todoData, setTodoData] = useState([]);
+    useEffect(() => {
+        getTodos();
+    },[]);
+
+    async function getTodos() {
+        await axios.get(baseurl)
+        .then((response) => {
+        console.log(response.data)
+        setTodoData(response.data);
+        })
+    }
+    
     return(
-        <MainFrame view={MainDetail(todos)}/>
+        <MainFrame view={MainDetail(todoData)}/>
     )
 }
 
