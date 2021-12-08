@@ -84,7 +84,7 @@ a {
   font-size: 24px;
   line-height: 40px;
 }
-.todoDetail {
+.todosDetail {
   text-align: center;
   line-height: 40px;
 }
@@ -93,7 +93,7 @@ a {
   text-decoration: rgb(213, 231, 213) wavy underline;
 }
 
-.todoContainer {
+.todosContainer {
   display: flex;
   justify-content: space-between;
   align-content: center;

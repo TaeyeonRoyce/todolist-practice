@@ -1,40 +1,29 @@
-import React from 'react';
-import MainFrame from '../components/MainFrame';
+import React from "react";
+import { Link } from "react-router-dom";
+import MainFrame from "../components/MainFrame";
+import Todos from '../components/Todos';
 import "../css/mainPage.css";
 
 
-function MainDetail() {
+function MainDetail({todos}) {
     return (
         <div className="mainDetailContainer">
-            <button className="addTodoBtn" onClick="location.href='addTodo.html'"> 새로운 일정 추가하기 </button>
+            <Link to="/todolist/addtodo">
+                <button className="addTodoBtn"> 새로운 일정 추가하기 </button>
+            </Link>
             <div className="todoListContainer">
-                <div class="todoContainer">
-                    <a href="todo.html" className="todoList">
-                        <div className="todoBullet">🟢️️</div>
-                        <div className="todoDetail">일정 내용</div>
-                    </a>
-                    <form className="deleteTodo" action="todos.html" method="post">
-                        <button type="submit"> ❌ </button>
-                    </form>
-                </div>
-                <div class="todoContainer">
-                    <a href="todo.html" className="todoList">
-                        <div className="todoBullet">⭕️</div>
-                        <div className="todoDetail">JPA 연결하기</div>
-                    </a>
-                    <form className="deleteTodo" action="todos.html" method="post">
-                        <button type="submit"> ❌ </button>
-                    </form>
-                </div>
+                {todos.map((todo) => (
+                    <Todos todo={todo} key={todo.todoId}></Todos>
+                ))}
             </div>
         </div>
     )
 }
 
 
-function MainPage() {
+function MainPage(todos) {
     return(
-        <MainFrame view={MainDetail()}/>
+        <MainFrame view={MainDetail(todos)}/>
     )
 }
 
