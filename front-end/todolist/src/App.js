@@ -2,8 +2,6 @@ import MainPage from './domain/MainPage';
 import {Route, Routes, BrowserRouter as Router} from "react-router-dom";
 import AddPage from './domain/AddPage';
 import TodoPage from './domain/TodoPage';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 
 function App() {
   return (
