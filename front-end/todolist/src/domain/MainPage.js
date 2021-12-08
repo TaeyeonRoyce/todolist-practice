@@ -1,27 +1,31 @@
 import React from 'react';
 import MainFrame from '../components/MainFrame';
-import "../css/todos.css"
+import "../css/mainPage.css";
 
 
 function MainDetail() {
     return (
         <div className="mainDetailContainer">
-            <button className="addTodo" onclick="location.href='addTodo.html'"> 새로운 일정 추가하기 </button>
+            <button className="addTodoBtn" onClick="location.href='addTodo.html'"> 새로운 일정 추가하기 </button>
             <div className="todoListContainer">
-                <a href="todo.html" className="todoList">
-                    <div className="todoBullet">⭕️</div>
-                    <div className="todoDetail">Jpa 공부하기</div>
-                </a>
-                <a href="todo.html" className="todoList">
-                    <div className="todoBullet">⭕️</div>
-                    <div className="todoDetail">Spring MVC 공부하기</div>
-                </a>
-                <a href="todo.html" className="doneListContainer">
-                    <div className="todoList">
-                        <div className="todoBullet">🟢</div>
-                        <div className="todoDetail">My Sql 연결하기</div>
-                    </div>
-                </a>
+                <div class="todoContainer">
+                    <a href="todo.html" className="todoList">
+                        <div className="todoBullet">🟢️️</div>
+                        <div className="todoDetail">일정 내용</div>
+                    </a>
+                    <form className="deleteTodo" action="todos.html" method="post">
+                        <button type="submit"> ❌ </button>
+                    </form>
+                </div>
+                <div class="todoContainer">
+                    <a href="todo.html" className="todoList">
+                        <div className="todoBullet">⭕️</div>
+                        <div className="todoDetail">JPA 연결하기</div>
+                    </a>
+                    <form className="deleteTodo" action="todos.html" method="post">
+                        <button type="submit"> ❌ </button>
+                    </form>
+                </div>
             </div>
         </div>
     )
@@ -30,7 +34,7 @@ function MainDetail() {
 
 function MainPage() {
     return(
-        <MainFrame view={<MainDetail/>}/>
+        <MainFrame view={MainDetail()}/>
     )
 }
 

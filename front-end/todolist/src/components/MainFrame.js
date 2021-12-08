@@ -1,4 +1,4 @@
-import "../css/todos.css"
+import "../css/mainPage.css"
 import Calendar from './Calendar';
 
 function MainFrame(props) {

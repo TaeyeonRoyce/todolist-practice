@@ -36,7 +36,7 @@ a {
   box-shadow: 0px 8px 13px grey;
 }
 
-.DateContainer {
+.dateContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,20 +48,19 @@ a {
 }
 .date {
   font-size: 80px;
-  letter-spacing: 5px;
 }
 
-.addTodo {
+.addTodoBtn {
   width: 200px;
   border-radius: 10px;
   background-color: rgb(173, 230, 230);
-  height: 40px;
+  min-height: 50px;
   font-size: 18px;
   transition: background-color 0.3s;
   box-shadow: 1px 2px 4px 0px rgb(207 202 202);
 }
 
-.addTodo:hover {
+.addTodoBtn:hover {
   background-color: rgba(173, 230, 230, 0.5);
 }
 
@@ -69,10 +68,9 @@ a {
   display: flex;
   flex-direction: column;
   padding-top: 40px;
-  width: 120%;
   gap: 20px;
+  width: 80%;
   transition: text-decoration 1s;
-  overflow-y: auto;
 }
 
 .todoList {
@@ -82,21 +80,47 @@ a {
   padding: 5px;
 }
 .todoBullet {
-  margin-right: 30px;
+  margin-right: 10px;
   font-size: 24px;
+  line-height: 40px;
 }
 .todoDetail {
   text-align: center;
-  line-height: 30px;
+  line-height: 40px;
 }
 
 .todoList:hover {
   text-decoration: rgb(213, 231, 213) wavy underline;
 }
 
-.mainDetailContainer {
+.todoContainer {
   display: flex;
-  flex-direction: column;
-  width: auto;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: aqua solid 1px;
+}
+
+.deleteTodo {
+  width: 50px;
+  border-radius: 50%;
+  min-height: 50px;
+  font-size: 18px;
+  transition: box-shadow 0.5s;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.deleteTodo button {
+  font-size: 20px;
+}
+
+.deleteTodo:hover {
+  box-shadow: 1px 2px 4px 0px rgb(207 202 202);
+}
+
+.mainDetailContainer {
+  min-width: 50%;
+  display: flex;
   align-items: center;
+  flex-direction: column;
 }

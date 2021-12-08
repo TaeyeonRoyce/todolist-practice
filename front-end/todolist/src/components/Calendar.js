@@ -7,7 +7,7 @@ function Calendar() {
     let todayMonth = now.getMonth() + 1;
     let todayDate = now.getDate() > 9 ? now.getDate() : '0' + now.getDate();
     return(
-    <div className="DateContainer">
+    <div className="dateContainer">
         <div className="year"> 
             {todayYear}
         </div>
