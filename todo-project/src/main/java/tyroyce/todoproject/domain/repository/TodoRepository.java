@@ -1,4 +1,4 @@
-package tyroyce.todoproject.domain.todo;
+package tyroyce.todoproject.domain.repository;
 
 import javax.transaction.Transactional;
 
@@ -17,5 +17,4 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
 	@Modifying(clearAutomatically = true)
 	@Query("UPDATE Todo todo SET todo.todoFinished = :isFinished WHERE todo.todoId = :todoId")
 	void updateFinished(@Param("isFinished") boolean isFinished, @Param("todoId") Long todoId);
-
 }

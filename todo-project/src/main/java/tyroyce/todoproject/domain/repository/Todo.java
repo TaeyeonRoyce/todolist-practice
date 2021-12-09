@@ -1,4 +1,4 @@
-package tyroyce.todoproject.domain.todo;
+package tyroyce.todoproject.domain.repository;
 
 import java.time.LocalDateTime;
 
@@ -31,6 +31,7 @@ public class Todo {
 	@Column(columnDefinition = "boolean default false")
 	private Boolean todoFinished = false;
 
+	@Column(columnDefinition = "timestamp default current_timestamp")
 	private LocalDateTime createAt;
 
 	public Todo(String todoDetail) {

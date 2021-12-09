@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import tyroyce.todoproject.domain.todo.Todo;
-import tyroyce.todoproject.domain.todo.TodoRepository;
+import tyroyce.todoproject.domain.repository.Todo;
+import tyroyce.todoproject.domain.repository.TodoRepository;
 
 @SpringBootTest
 class TodoProjectApplicationTests {
